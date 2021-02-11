@@ -32,17 +32,17 @@ steps:
 variables:
   region: 'us-east-1'
 
-# - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
-#   displayName: 'Terraform : plan'
-#   inputs:
-#     provider: aws
-#     command: plan
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/kunduso_LearnTerraform/Get-Started-AWS-009-CI-CD-AzureDevops'
-#     commandOptions: '-var "region=$(region)" -var "access_key=$(access_key)" -var "secret_key=$(secret_key)" -out demo.tfplan'
-#     environmentServiceNameAWS: 'AWS-Terraform'
-#     backendServiceAWS: 'AWS-Terraform'
-#     backendAWSBucketName: 'skundu-terraform-remote-state'
-#     backendAWSKey: 'tf/Get-Started-AWS-009-CI-CD-AzureDevops/terraform.tfstate'
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform : plan'
+  inputs:
+    provider: aws
+    command: plan
+    workingDirectory: "$(System.DefaultWorkingDirectory)"
+    commandOptions: '-var "region=$(region)" -var "access_key=$(access_key)" -var "secret_key=$(secret_key)" -out demo.tfplan'
+    environmentServiceNameAWS: "AWS-Terraform"
+    backendServiceAWS: "AWS-Terraform"
+    backendAWSBucketName: "skundu-terraform-remote-state"
+    backendAWSKey: "tf/ADO-TF-AWSS3-Int/terraform.tfstate"
 
 # - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
 #   displayName: 'Terraform : validate and apply'
