@@ -38,7 +38,7 @@ variables:
     provider: aws
     command: plan
     workingDirectory: "$(System.DefaultWorkingDirectory)"
-    commandOptions: '-var "region=$(region)" -var "access_key=$(access_key)" -var "secret_key=$(secret_key)" -out demo.tfplan'
+    commandOptions: "-var "region=$(region)" -var "access_key=$(access_key)" -var "secret_key=$(secret_key)" -out demo.tfplan"
     environmentServiceNameAWS: "AWS-Terraform"
     backendServiceAWS: "AWS-Terraform"
     backendAWSBucketName: "skundu-terraform-remote-state"
