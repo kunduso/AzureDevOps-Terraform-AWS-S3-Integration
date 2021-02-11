@@ -44,14 +44,14 @@ steps:
     backendAWSBucketName: "skundu-terraform-remote-state"
     backendAWSKey: "tf/ADO-TF-AWSS3-Int/terraform.tfstate"
 
-# - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
-#   displayName: 'Terraform : validate and apply'
-#   inputs:
-#     provider: aws
-#     command: apply
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/kunduso_LearnTerraform/Get-Started-AWS-009-CI-CD-AzureDevops'
-#     commandOptions: '"demo.tfplan"'
-#     environmentServiceNameAWS: 'AWS-Terraform'
-#     backendServiceAWS: 'AWS-Terraform'
-#     backendAWSBucketName: 'skundu-terraform-remote-state'
-#     backendAWSKey: 'tf/Get-Started-AWS-001/terraform.tfstate'
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  displayName: 'Terraform : validate and apply'
+  inputs:
+    provider: aws
+    command: apply
+    workingDirectory: "$(System.DefaultWorkingDirectory)"
+    commandOptions: 'demo.tfplan'
+    environmentServiceNameAWS: "AWS-Terraform"
+    backendServiceAWS: "AWS-Terraform"
+    backendAWSBucketName: "skundu-terraform-remote-state"
+    backendAWSKey: "tf/ADO-TF-AWSS3-Int/terraform.tfstate"
