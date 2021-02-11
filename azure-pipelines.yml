@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: 'vs2017-win2016'
 
+variables:
+  region: "us-east-1"
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -29,9 +32,6 @@ steps:
 
 # Your build pipeline references a secret variable named ‘access_key’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
 # Your build pipeline references a secret variable named ‘secret_key’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab, and then select the option to make it secret. See https://go.microsoft.com/fwlink/?linkid=865972
-variables:
-  region: "us-east-1"
-
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
   displayName: 'Terraform : plan'
   inputs:
